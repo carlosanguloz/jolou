@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
+    <title>{{ page.title }} | {{ site.title }}</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
     <header>
-        <h1>{{ site.title }}</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <img src="/assets/images/logo.png" alt="JoLou Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a></li>
+                    <li><a href="/user-guide" class="{% if page.url == '/user-guide/' %}active{% endif %}">User Guide</a></li>
+                    <li><a href="/wolfram-research" class="{% if page.url == '/wolfram-research/' %}active{% endif %}">Wolfram Research</a></li>
+                    <li><a href="/economics" class="{% if page.url == '/economics/' %}active{% endif %}">Economics</a></li>
+                    <li><a href="/maths" class="{% if page.url == '/maths/' %}active{% endif %}">Maths</a></li>
+                    <li><a href="/about" class="{% if page.url == '/about/' %}active{% endif %}">About the Creator</a></li>
+                    <li><a href="/theoretical-framework" class="{% if page.url == '/theoretical-framework/' %}active{% endif %}">Theoretical Framework</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
+    <main class="container">
         {{ content }}
     </main>
     <footer>
-        <p>{{ site.title }} - &copy; {{ site.time | date: '%Y' }}</p>
+        <div class="container">
+            <p>&copy; {{ site.time | date: '%Y' }} JoLou. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
